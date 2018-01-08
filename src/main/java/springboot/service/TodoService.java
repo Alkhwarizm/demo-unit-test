@@ -6,6 +6,7 @@ import springboot.model.Todo;
 import springboot.model.constants.TodoPriority;
 import springboot.repository.TodoRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,10 @@ public class TodoService {
 
   @Autowired
   private TodoRepository todoRepository;
+
+  public TodoService(TodoRepository todoRepository) {
+    this.todoRepository = todoRepository;
+  }
 
   public boolean saveTodo(String name, TodoPriority priority) {
     Todo todo = new Todo(name, priority);
